@@ -5,7 +5,6 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.SavedStateHandle;
 import androidx.lifecycle.SavedStateViewModelFactory;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -21,21 +20,16 @@ import java.util.Objects;
  * A simple {@link Fragment} subclass.
  */
 public class LoginFragment extends Fragment {
-
-    FragmentLoginBinding loginBinding;
-
+    private FragmentLoginBinding binding;
+    private UserModel userModel;
 
     public LoginFragment() {
         // Required empty public constructor
     }
 
-
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        UserModel userModel;
-        userModel = ViewModelProvider(requireActivity(), new SavedStateViewModelFactory(requireActivity()).get(UserModel.class);
-        FragmentLoginBinding binding;
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        userModel = new ViewModelProvider(requireActivity(), new SavedStateViewModelFactory(requireActivity().getApplication(), this)).get(UserModel.class);
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_login, container, false);
 
         binding.loginButton.setOnClickListener(new View.OnClickListener() {
@@ -43,7 +37,7 @@ public class LoginFragment extends Fragment {
             public void onClick(View view) {
                 String account = String.valueOf(binding.accountInput.getText());
                 String password = String.valueOf(binding.pwdInput.getText());
-                if (Objects.equals(userModel.getUsername().getValue(), "0")){
+                if (Objects.equals(userModel.getUsername().getValue(), "0")) {
                     userModel.getUsername().setValue(account);
                     userModel.getPassword().setValue(password);
                 }
@@ -51,6 +45,7 @@ public class LoginFragment extends Fragment {
         });
         // Inflate the layout for this fragment
         //return inflater.inflate(R.layout.fragment_login, container, false);
-        return null;
+        return binding.getRoot();
     }
+
 }
