@@ -7,10 +7,13 @@ import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.SavedStateViewModelFactory;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.kariol.dailychallenge.databinding.FragmentLoginBinding;
 
@@ -22,6 +25,7 @@ import java.util.Objects;
 public class LoginFragment extends Fragment {
     private FragmentLoginBinding binding;
     private UserModel userModel;
+    private NavController controller;
 
     public LoginFragment() {
         // Required empty public constructor
@@ -32,15 +36,19 @@ public class LoginFragment extends Fragment {
         userModel = new ViewModelProvider(requireActivity(), new SavedStateViewModelFactory(requireActivity().getApplication(), this)).get(UserModel.class);
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_login, container, false);
 
-        binding.loginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String account = String.valueOf(binding.accountInput.getText());
-                String password = String.valueOf(binding.pwdInput.getText());
-                if (Objects.equals(userModel.getUsername().getValue(), "0")) {
+        binding.loginButton.setOnClickListener(view -> {
+            String account = String.valueOf(binding.accountInput.getText());
+            controller =  Navigation.findNavController(view);
+            if (userModel.getUsername().getValue() == null) {
+                if (binding.accountInput.getText() == null){
+                    Toast.makeText(requireContext(), R.string.account_null, Toast.LENGTH_SHORT).show();
+                } else {
                     userModel.getUsername().setValue(account);
-                    userModel.getPassword().setValue(password);
+                    Toast.makeText(requireContext(), R.string.login_message_first, Toast.LENGTH_SHORT).show();
+                    controller.navigate(R.id.login_to_home);
                 }
+            } else {
+                controller.navigate(R.id.homeFragment);
             }
         });
         // Inflate the layout for this fragment

@@ -6,4 +6,6 @@
     <dimen name="input_text_height">48sp</dimen>
     <dimen name="account_password_icon_height">40sp</dimen>
     <dimen name="login_font_size">20sp</dimen>
+    <dimen name="icon_width">100sp</dimen>
+    <dimen name="icon_height">100sp</dimen>
 </resources>

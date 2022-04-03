@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">每日挑战</string>
+    <string name="title">每日挑战</string>
+    <string name="account">请输入用户名：</string>
+    <string name="account_null">请输入用户名！</string>
+    <string name="loginButton">确定</string>
+    <string name="gold">金币：%d</string>
+    <string name="targetScore">目标分数：%d</string>
+    <string name="score">分数：%d</string>
+    <string name="ansText">你的答案：</string>
+    <string name="win_message">你赢了</string>
+    <string name="gold_got_message">获得金币：%d</string>
+    <string name="backButton">返回首页</string>
+    <string name="loseMessage">你输了</string>
+    <string name="gold_lose_message">失去金币：%d</string>
+    <string name="check_message">回答正确，继续！</string>
+    <string name="wait_message">功能开发中，敬请期待……</string>
+    <string name="login_message_first">欢迎使用</string>
+    <string name="login_message">欢迎回来</string>
+    <string name="back_challenge_message">正在进行挑战，是否确定退出？</string>
+    <string name="back_yes_message">确定</string>
+    <string name="back_cancel_message">取消</string>
+    <string name="back_login_message">即将退出登录，是否确定退出？</string>
+    <string name="login_fragment">登录</string>
+    <string name="home_fragment">主页</string>
+    <string name="challenge_fragment">挑战中</string>
+    <string name="win_fragment">胜利</string>
+    <string name="lose_fragment">失败</string>
+    <string name="quit_fragment">是否退出程序？</string>
+    <string name="ans_null">没有输入答案！</string>
+    <string name="level_title">难度选择</string>
+    <string name="level_check">是否确定开始挑战？</string>
+    <string name="level_fragment">难度选择</string>
+</resources>
