@@ -134,20 +134,6 @@
             app:layout_constraintStart_toStartOf="@+id/guideline11"
             app:layout_constraintTop_toTopOf="@+id/guideline9" />
 
-        <EditText
-            android:id="@+id/pwdInput"
-            android:layout_width="@dimen/max_width"
-            android:layout_height="@dimen/input_text_height"
-            android:autofillHints=""
-            android:ems="10"
-            android:hint="@string/password"
-            android:inputType="textPassword"
-            android:textColorHint="#757575"
-            app:layout_constraintBottom_toTopOf="@+id/guideline10"
-            app:layout_constraintEnd_toStartOf="@+id/guideline3"
-            app:layout_constraintStart_toStartOf="@+id/guideline11"
-            app:layout_constraintTop_toTopOf="@+id/guideline10" />
-
         <ImageView
             android:id="@+id/accountIcon"
             android:layout_width="@dimen/max_width"
@@ -158,17 +144,6 @@
             app:layout_constraintEnd_toStartOf="@+id/guideline11"
             app:layout_constraintStart_toStartOf="@+id/guideline2"
             app:layout_constraintTop_toTopOf="@+id/guideline9" />
-
-        <ImageView
-            android:id="@+id/passwordIcon"
-            android:layout_width="@dimen/max_width"
-            android:layout_height="@dimen/account_password_icon_height"
-            android:contentDescription="@string/passwordIcon"
-            android:src="@drawable/password"
-            app:layout_constraintBottom_toTopOf="@+id/guideline10"
-            app:layout_constraintEnd_toStartOf="@+id/guideline11"
-            app:layout_constraintStart_toStartOf="@+id/guideline2"
-            app:layout_constraintTop_toTopOf="@+id/guideline10" />
 
         <Button
             android:id="@+id/loginButton"
